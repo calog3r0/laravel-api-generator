@@ -23,6 +23,7 @@ class BaseCommand extends Command
     public function handle()
     {
         $this->commandData->modelName = $this->argument('model');
+        $this->commandData->modelNamePlural = $this->option('modelNamePlural');
         $this->commandData->useSoftDelete = $this->option('softDelete');
         $this->commandData->fieldsFile = $this->option('fieldsFile');
         $this->commandData->paginate = $this->option('paginate');
@@ -95,6 +96,7 @@ class BaseCommand extends Command
     public function getOptions()
     {
         return [
+            ['modelNamePlural', null, InputOption::VALUE_REQUIRED, 'modelNamePlural'],
             ['softDelete', null, InputOption::VALUE_NONE, 'Use Soft Delete trait'],
             ['fieldsFile', null, InputOption::VALUE_REQUIRED, 'Fields input as json file'],
             ['paginate', null, InputOption::VALUE_OPTIONAL, 'Pagination for index.blade.php', 10],

@@ -62,7 +62,7 @@ class CommandData
 
     public function initVariables()
     {
-        $this->modelNamePlural = Str::plural($this->modelName);
+        $this->modelNamePlural = $this->modelNamePlural ? $this->modelNamePlural : Str::plural($this->modelName);
         $this->modelNameCamel = Str::camel($this->modelName);
         $this->modelNamePluralCamel = Str::camel($this->modelNamePlural);
         $this->initDynamicVariables();
